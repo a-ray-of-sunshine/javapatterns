@@ -1,12 +1,24 @@
 package com.javapatterns.singleton.mxmail;
 
-import java.util.*;
-import java.io.*;
-import javax.mail.*;
-import javax.mail.internet.*;
-import javax.activation.*;
+import java.util.Date;
+import java.util.Enumeration;
+import java.util.Properties;
+import java.util.Vector;
 
-import com.javapatterns.singleton.mxrecord.*;
+import javax.activation.DataHandler;
+import javax.activation.FileDataSource;
+import javax.mail.Message;
+import javax.mail.Multipart;
+import javax.mail.SendFailedException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
+
+import com.javapatterns.singleton.mxrecord.MXList;
+import com.javapatterns.singleton.mxrecord.MailServer;
 
 /**
  * This class provides an interface on the top of the Java Mail.
@@ -213,7 +225,7 @@ public class EmailManager
     public void init() throws Exception
     {
 		mxl = MXList.getInstance("dns://dns90.jeffcorp.com", "jeffcorp.com");
-        mxl.dump();
+//        mxl.dump();
 
 	    /**
 	    * Create some properties and get the default Session.
